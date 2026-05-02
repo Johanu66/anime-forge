@@ -1,0 +1,8 @@
+{
+  "modele": "DCGAN+DRAGAN Sprint 2 (90 epochs)",
+  "fid": 54.0066625548485,
+  "n_images": 2048,
+  "epochs": 90,
+  "lambda_gp": 0.5,
+  "lr": 0.0002
+}
