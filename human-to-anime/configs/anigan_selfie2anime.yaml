@@ -1,0 +1,37 @@
+experiment_name: anigan_selfie2anime
+model_name: anigan
+mode: anigan
+seed: 42
+
+data:
+  root: ../data/selfie2anime/paired
+  image_size: 128
+  num_workers: 2
+  batch_size: 16
+  augment:
+    random_horizontal_flip: true
+    color_jitter: 0.1
+  paired_layout:
+    train_real: train/real
+    train_anime: train/anime
+    val_real: val/real
+    val_anime: val/anime
+    test_real: test/real
+    test_anime: test/anime
+
+train:
+  epochs: 100
+  decay_start_epoch: 50
+  lr: 0.0002
+  beta1: 0.5
+  beta2: 0.999
+  lambda_l1: 100.0
+  lambda_perceptual: 10.0
+  lambda_identity: 5.0
+  sample_interval: 5
+  mixed_precision: true
+
+runtime:
+  output_dir: ../outputs/anigan
+  checkpoint_dir: ../checkpoints/anigan
+  resume_checkpoint: null

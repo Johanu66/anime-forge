@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ app_name }} | Home{% endblock %}
+
+{% block content %}
+<section class="container pt-4 pt-lg-5">
+  <div class="hero-card reveal">
+    <span class="eyebrow">AI Creative Suite</span>
+    <h1 class="hero-title">Transforme tes idees en univers anime en quelques secondes.</h1>
+    <p class="hero-subtitle">
+      Une plateforme elegante pour generer des personnages, scenes et conversions visage-vers-anime via des modeles IA.
+      Rapide, propre et pensee pour desktop et mobile.
+    </p>
+    <div class="hero-actions d-flex flex-wrap gap-3">
+      <a href="{{ url_for('text_to_anime') }}" class="btn btn-premium btn-lg">
+        <i class="fa-solid fa-bolt me-2"></i>Lancer maintenant
+      </a>
+      <a href="{{ url_for('face_to_anime') }}" class="btn btn-outline-light btn-lg">
+        <i class="fa-solid fa-image-portrait me-2"></i>Tester une photo
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="container mt-5">
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <a href="{{ url_for('text_to_anime') }}" class="feature-card reveal">
+        <div class="feature-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <h3>Text to Anime</h3>
+        <p>Decris ton personnage, ton ambiance ou ta scene et laisse l'IA donner vie a ton prompt.</p>
+        <span class="feature-link">Ouvrir <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+    <div class="col-lg-4">
+      <a href="{{ url_for('random_anime') }}" class="feature-card reveal">
+        <div class="feature-icon"><i class="fa-solid fa-shuffle"></i></div>
+        <h3>Random Anime Generator</h3>
+        <p>Genere automatiquement des personnages uniques et regenere autant de fois que voulu.</p>
+        <span class="feature-link">Ouvrir <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+    <div class="col-lg-4">
+      <a href="{{ url_for('face_to_anime') }}" class="feature-card reveal">
+        <div class="feature-icon"><i class="fa-solid fa-user-ninja"></i></div>
+        <h3>Human Face to Anime</h3>
+        <p>Upload une photo humaine et obtiens une version anime via modele U-GAT-IT / selfie2anime.</p>
+        <span class="feature-link">Ouvrir <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

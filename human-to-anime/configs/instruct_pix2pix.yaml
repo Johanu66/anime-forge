@@ -1,0 +1,49 @@
+experiment_name: instruct_pix2pix_selfie2anime
+model_name: instruct_pix2pix
+mode: instruct_pix2pix
+seed: 42
+
+data:
+  root: ../data/selfie2anime/paired
+  image_size: 128
+  num_workers: 2
+  batch_size: 8
+  augment:
+    random_horizontal_flip: true
+    color_jitter: 0.1
+  paired_layout:
+    train_real: train/real
+    train_anime: train/anime
+    val_real: val/real
+    val_anime: val/anime
+    test_real: test/real
+    test_anime: test/anime
+
+text_encoder:
+  model_name: openai/clip-vit-base-patch32
+  embedding_dim: 512
+  local_files_only: false
+  prompt_file: null
+  default_prompt: null
+  prompt_templates:
+    - "convert this selfie into clean anime portrait with vivid eyes"
+    - "turn this portrait into anime style while preserving identity"
+    - "anime illustration style, soft shading, preserve facial structure"
+    - "stylize this face into manga-inspired character art"
+
+train:
+  epochs: 100
+  decay_start_epoch: 50
+  lr: 0.0002
+  beta1: 0.5
+  beta2: 0.999
+  lambda_l1: 100.0
+  lambda_perceptual: 5.0
+  text_dropout: 0.1
+  sample_interval: 5
+  mixed_precision: true
+
+runtime:
+  output_dir: ../outputs/instruct_pix2pix
+  checkpoint_dir: ../checkpoints/instruct_pix2pix
+  resume_checkpoint: null

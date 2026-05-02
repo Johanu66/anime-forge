@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}{{ app_name }} | Text to Anime{% endblock %}
+
+{% block content %}
+<section class="container pt-4">
+  <div class="page-header reveal">
+    <span class="eyebrow">Feature 01</span>
+    <h1>Text to Anime</h1>
+    <p>Entrez un prompt detaille pour generer un personnage ou une scene anime.</p>
+  </div>
+
+  <div class="row g-4 mt-1">
+    <div class="col-lg-5">
+      <div class="panel reveal">
+        <form method="post" data-loading-form>
+          <label for="prompt" class="form-label">Prompt</label>
+          <textarea
+            id="prompt"
+            name="prompt"
+            class="form-control premium-input"
+            rows="7"
+            placeholder="Ex: guerriere cyberpunk cheveux bleus, neon rain city, style anime cinematic"
+            required
+          >{{ prompt }}</textarea>
+
+          <div class="loader-wrap d-none mt-3" data-loader>
+            <div class="spinner-border text-info me-2" role="status"></div>
+            <span>Generation en cours...</span>
+          </div>
+
+          <button type="submit" class="btn btn-premium w-100 mt-4" data-submit>
+            <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Generate
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-7">
+      <div class="panel reveal h-100">
+        {% if result %}
+          <div class="result-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <h3 class="mb-0">Resultat</h3>
+            <span class="badge text-bg-info">{{ result.engine }}</span>
+          </div>
+          <div class="result-image-wrapper mt-3">
+            <img src="{{ url_for('output_file', filename=result.path.name) }}" alt="Anime result" class="result-image" />
+          </div>
+          <a href="{{ url_for('download_output', filename=result.path.name) }}" class="btn btn-outline-light mt-3">
+            <i class="fa-solid fa-download me-2"></i>Download
+          </a>
+        {% else %}
+          <div class="empty-state">
+            <i class="fa-regular fa-image"></i>
+            <p>Le resultat apparaitra ici apres generation.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

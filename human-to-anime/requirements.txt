@@ -1,0 +1,28 @@
+# PyTorch stack
+torch>=2.2.0
+torchvision>=0.17.0
+torchaudio>=2.2.0
+
+# Scientific / plotting
+matplotlib>=3.8.0
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-image>=0.22.0
+tqdm>=4.66.0
+
+# Jupyter
+jupyter>=1.0.0
+ipykernel>=6.29.0
+
+# YAML parsing
+PyYAML>=6.0.1
+
+# Transformers / Hugging Face
+transformers>=4.39.0
+datasets
+
+# Pillow 10+ compatible avec Python 3.13
+Pillow>=10.0.0 --only-binary=:all:
+
+# Facenet pytorch (installer après Pillow)
+facenet-pytorch

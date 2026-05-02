@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{ app_name }} | Random Anime{% endblock %}
+
+{% block content %}
+<section class="container pt-4">
+  <div class="page-header reveal">
+    <span class="eyebrow">Feature 02</span>
+    <h1>Random Anime Generator</h1>
+    <p>Generez instantanement des personnages anime aleatoires, puis regenerez a volonte.</p>
+  </div>
+
+  <div class="row g-4 mt-1">
+    <div class="col-lg-4">
+      <div class="panel reveal">
+        <form method="post" data-loading-form>
+          <p class="text-secondary mb-3">Chaque generation cree un style et des traits differents.</p>
+
+          <div class="loader-wrap d-none mb-3" data-loader>
+            <div class="spinner-border text-info me-2" role="status"></div>
+            <span>Generation en cours...</span>
+          </div>
+
+          <button type="submit" class="btn btn-premium w-100" data-submit>
+            <i class="fa-solid fa-shuffle me-2"></i>Generate Random
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="panel reveal h-100">
+        {% if result %}
+          <div class="result-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <h3 class="mb-0">Personnage genere</h3>
+            <span class="badge text-bg-info">{{ result.engine }}</span>
+          </div>
+          <div class="result-image-wrapper random-result-image-wrapper mt-3">
+            <img src="{{ url_for('output_file', filename=result.path.name) }}" alt="Random anime" class="result-image random-result-image" />
+          </div>
+          <a href="{{ url_for('download_output', filename=result.path.name) }}" class="btn btn-outline-light mt-3">
+            <i class="fa-solid fa-download me-2"></i>Download
+          </a>
+        {% else %}
+          <div class="empty-state">
+            <i class="fa-solid fa-user-astronaut"></i>
+            <p>Cliquez sur Generate Random pour creer votre premier personnage.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

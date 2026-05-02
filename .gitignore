@@ -1,0 +1,91 @@
+# ==========================================
+# General local/dev files
+# ==========================================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.log
+.env
+.env.*
+
+# Local assistant metadata
+.agents/
+.codex/
+**/.codex
+
+# ==========================================
+# Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.python-version
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+dist/
+build/
+*.egg-info/
+pip-wheel-metadata/
+
+# ==========================================
+# Jupyter
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# ML / training artifacts
+# ==========================================
+*.pt
+*.pth
+*.pth.tar
+*.pth.zip
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+*.hdf5
+*.tflite
+*.npy
+*.npz
+wandb/
+mlruns/
+lightning_logs/
+runs/
+
+# ==========================================
+# Project-specific generated data
+# ==========================================
+# anime-face runtime artifacts
+anime-face-app/uploads/*
+!anime-face-app/uploads/.gitkeep
+anime-face-app/outputs/*
+!anime-face-app/outputs/.gitkeep
+
+# human-to-anime heavy artifacts
+human-to-anime/checkpoints/*
+!human-to-anime/checkpoints/.gitkeep
+human-to-anime/outputs/*
+!human-to-anime/outputs/.gitkeep
+human-to-anime/data/*
+!human-to-anime/data/.gitkeep
+human-to-anime/rapport_sprint1_fonctionnalite2.md
+human-to-anime/rapport_sprint2_fonctionnalite2.md
+human-to-anime/notebooks/sprint1_feature2_image_to_image_anime.ipynb
+human-to-anime/notebooks/sprint2_feature2_image_to_image_anime.ipynb

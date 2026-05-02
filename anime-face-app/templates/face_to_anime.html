@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}{{ app_name }} | Human Face to Anime{% endblock %}
+
+{% block content %}
+<section class="container pt-4">
+  <div class="page-header reveal">
+    <span class="eyebrow">Feature 03</span>
+    <h1>Human Face to Anime</h1>
+    <p>Upload un portrait humain, transforme-le en anime et compare avant/apres.</p>
+  </div>
+
+  <div class="row g-4 mt-1">
+    <div class="col-lg-4">
+      <div class="panel reveal">
+        <form method="post" enctype="multipart/form-data" data-loading-form>
+          <label for="face_image" class="form-label">Image visage</label>
+          <input
+            class="form-control premium-input"
+            type="file"
+            name="face_image"
+            id="face_image"
+            accept=".png,.jpg,.jpeg,.webp"
+            required
+          />
+
+          <div class="upload-preview mt-3" id="uploadPreviewBox">
+            <img id="uploadPreviewImage" alt="Apercu upload" class="d-none" />
+            <p id="uploadPreviewText" class="mb-0">Apercu local de votre image</p>
+          </div>
+
+          <div class="loader-wrap d-none mt-3" data-loader>
+            <div class="spinner-border text-info me-2" role="status"></div>
+            <span>Transformation en cours...</span>
+          </div>
+
+          <button type="submit" class="btn btn-premium w-100 mt-4" data-submit>
+            <i class="fa-solid fa-user-ninja me-2"></i>Transform
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="panel reveal h-100">
+        {% if result and uploaded_filename %}
+          <div class="result-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <h3 class="mb-0">Comparaison</h3>
+            <span class="badge text-bg-info">{{ result.engine }}</span>
+          </div>
+
+          <div class="row g-3 mt-1">
+            <div class="col-md-6">
+              <div class="comparison-card">
+                <p class="comparison-label">Avant</p>
+                <img src="{{ url_for('upload_file', filename=uploaded_filename) }}" alt="Image source" class="result-image" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="comparison-card">
+                <p class="comparison-label">Apres</p>
+                <img src="{{ url_for('output_file', filename=result.path.name) }}" alt="Image anime" class="result-image" />
+              </div>
+            </div>
+          </div>
+
+          <a href="{{ url_for('download_output', filename=result.path.name) }}" class="btn btn-outline-light mt-3">
+            <i class="fa-solid fa-download me-2"></i>Download final image
+          </a>
+        {% else %}
+          <div class="empty-state">
+            <i class="fa-solid fa-face-smile"></i>
+            <p>Importez un portrait pour voir la conversion anime ici.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

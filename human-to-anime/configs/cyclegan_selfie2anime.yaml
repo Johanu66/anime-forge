@@ -1,0 +1,35 @@
+experiment_name: cyclegan_selfie2anime
+model_name: cyclegan
+mode: cyclegan
+seed: 42
+
+data:
+  root: ../data/selfie2anime/unpaired
+  image_size: 128
+  num_workers: 2
+  batch_size: 16
+  augment:
+    random_horizontal_flip: true
+    color_jitter: 0.1
+  unpaired_layout:
+    train_a: trainA
+    train_b: trainB
+    test_a: testA
+    test_b: testB
+
+train:
+  epochs: 100
+  decay_start_epoch: 50
+  lr: 0.0002
+  beta1: 0.5
+  beta2: 0.999
+  lambda_cycle: 10.0
+  lambda_identity: 5.0
+  sample_interval: 5
+  save_interval: 5
+  mixed_precision: true
+
+runtime:
+  output_dir: ../outputs/cyclegan
+  checkpoint_dir: ../checkpoints/cyclegan
+  resume_checkpoint: null

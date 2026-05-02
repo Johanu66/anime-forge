@@ -1,0 +1,35 @@
+experiment_name: ugatit_selfie2anime
+model_name: ugatit
+mode: ugatit
+seed: 42
+
+data:
+  root: ../data/selfie2anime/unpaired
+  image_size: 128
+  num_workers: 2
+  batch_size: 8
+  augment:
+    random_horizontal_flip: true
+    color_jitter: 0.1
+  unpaired_layout:
+    train_a: trainA
+    train_b: trainB
+    test_a: testA
+    test_b: testB
+
+train:
+  epochs: 100
+  decay_start_epoch: 50
+  lr: 0.0001
+  beta1: 0.5
+  beta2: 0.999
+  lambda_cycle: 10.0
+  lambda_identity: 10.0
+  lambda_cam: 100.0
+  sample_interval: 5
+  mixed_precision: true
+
+runtime:
+  output_dir: ../outputs/ugatit_base
+  checkpoint_dir: ../checkpoints/ugatit_base
+  resume_checkpoint: null
