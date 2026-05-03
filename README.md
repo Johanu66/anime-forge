@@ -26,6 +26,10 @@ Application deployee: **https://anime-forge.randever.com**
 ### 🎬 Video de demonstration
 Une demo du projet est disponible ici: [presentation-and-demo.mp4](./presentation-and-demo.mp4)
 
+### 📄 Rapport final
+Le rapport détaillé du projet est disponible ici: [rapport-final.pdf](./rapport-final.pdf)
+
+
 ## 💻 Lancer en local
 
 ### 1) Aller dans l'application Flask
@@ -89,7 +93,6 @@ python app.py
 
 ## 📚 Ressources du projet
 
-- Rapport final: [rapport-final.pdf](./rapport-final.pdf)
 - Application Flask: `anime-face-app/`
 - Fonctionnalite generation aleatoire (code de recherche et entrainement): `random-anime/`
 - Fonctionnalite texte-vers-image (code de recherche et entrainement): `text-to-anime/`
