@@ -1,7 +1,8 @@
 # AnimeForge
 
 AnimeForge est un projet du cours **8INF887 - Apprentissage profond**.  
-🎯 **Objectif du projet**  
+
+## 🎯 **Objectif du projet**  
 L'objectif est de proposer une plateforme web unique pour la generation d'images anime via trois fonctionnalites:
 
 1. `Text to Anime` : generation a partir d'un prompt texte.
