@@ -243,6 +243,18 @@ h6,
   border-radius: 12px;
 }
 
+.text-result-image-wrapper {
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-result-image {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: rgba(9, 16, 32, 0.7);
+}
+
 .random-result-image-wrapper {
   max-width: 380px;
   margin-left: auto;
@@ -361,6 +373,10 @@ h6,
 
   .hero-title {
     font-size: clamp(1.7rem, 8vw, 2.6rem);
+  }
+
+  .text-result-image-wrapper {
+    max-width: 340px;
   }
 
   .random-result-image-wrapper {

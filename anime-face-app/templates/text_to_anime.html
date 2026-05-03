@@ -42,8 +42,8 @@
             <h3 class="mb-0">Resultat</h3>
             <span class="badge text-bg-info">{{ result.engine }}</span>
           </div>
-          <div class="result-image-wrapper mt-3">
-            <img src="{{ url_for('output_file', filename=result.path.name) }}" alt="Anime result" class="result-image" />
+          <div class="result-image-wrapper text-result-image-wrapper mt-3">
+            <img src="{{ url_for('output_file', filename=result.path.name) }}" alt="Anime result" class="result-image text-result-image" />
           </div>
           <a href="{{ url_for('download_output', filename=result.path.name) }}" class="btn btn-outline-light mt-3">
             <i class="fa-solid fa-download me-2"></i>Download

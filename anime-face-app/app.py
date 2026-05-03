@@ -138,6 +138,8 @@ def _ensure_directories() -> None:
     for path in (
         MODELS_DIR,
         MODELS_DIR / "text-to-anime",
+        MODELS_DIR / "text-to-anime" / "lora_weights_local",
+        MODELS_DIR / "text-to-anime" / "base_model_local",
         MODELS_DIR / "random-anime",
         MODELS_DIR / "human-to-anime",
         UPLOAD_DIR,
@@ -402,10 +404,12 @@ def _load_hook(module_path: Path, function_name: str) -> Callable | None:
 def _try_custom_text_model(prompt: str, output_path: Path) -> str | None:
     hook = _load_hook(MODELS_DIR / "text-to-anime" / "inference.py", "generate")
     if hook is None:
+        LOGGER.warning("No text-to-anime hook found at models/text-to-anime/inference.py")
         return None
     try:
         hook(prompt, str(output_path))
-    except Exception:
+    except Exception as exc:
+        LOGGER.exception("Text-to-anime custom hook failed: %s", exc)
         return None
     if output_path.exists():
         return "Custom Text Model"
