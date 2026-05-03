@@ -25,7 +25,7 @@ Projet realise par:
 Application deployee: **https://anime-forge.randever.com**
 
 ### 🎬 Video de demonstration
-Une demo du projet est disponible ici: [presentation-and-demo.mp4](./presentation-and-demo.mp4)
+Une demo du projet est disponible ici: [Video de presentation (Google Drive)](https://drive.google.com/file/d/1mOKIjd4gmxSNtEh59dJBb4Th89cLYWNM/view?usp=sharing)
 
 ### 📄 Rapport final
 Le rapport détaillé du projet est disponible ici: [rapport-final.pdf](./rapport-final.pdf)
