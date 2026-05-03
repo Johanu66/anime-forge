@@ -1,6 +1,7 @@
 # AnimeForge
 
 AnimeForge est un projet du cours **8INF887 - Apprentissage profond**.  
+🎯 **Objectif du projet**  
 L'objectif est de proposer une plateforme web unique pour la generation d'images anime via trois fonctionnalites:
 
 1. `Text to Anime` : generation a partir d'un prompt texte.
@@ -9,7 +10,7 @@ L'objectif est de proposer une plateforme web unique pour la generation d'images
 
 L'interface finale est une application Flask moderne (dossier `anime-face-app`) qui integre ces trois parcours dans une experience unique.
 
-## Equipe du projet
+## 👥 Equipe du projet
 
 Projet realise par:
 
@@ -17,15 +18,15 @@ Projet realise par:
 - Amal Ouedraogo
 - Imane BOUGHELEM
 
-## Tester rapidement
+## 🚀 Tester rapidement
 
-### Version en ligne
+### 🌐 Version en ligne
 Application deployee: **https://anime-forge.randever.com**
 
-### Video de demonstration
+### 🎬 Video de demonstration
 Une demo du projet est disponible ici: [presentation-and-demo.mp4](./presentation-and-demo.mp4)
 
-## Lancer en local
+## 💻 Lancer en local
 
 ### 1) Aller dans l'application Flask
 
@@ -60,7 +61,7 @@ python app.py
 
 Puis ouvrir `http://127.0.0.1:5000`.
 
-## Verification fonctionnelle
+## ✅ Verification fonctionnelle
 
 Une fois l'application ouverte:
 
@@ -68,7 +69,7 @@ Une fois l'application ouverte:
 2. Ouvrir `Random Anime`, cliquer sur **Generate Random**.
 3. Ouvrir `Human Face to Anime`, uploader une image visage puis cliquer sur **Transform**.
 
-## Modeles locaux utilises dans l'app
+## 🧠 Modeles locaux utilises dans l'app
 
 L'app est prete a utiliser les poids presents dans `anime-face-app/models/`:
 
@@ -79,14 +80,14 @@ L'app est prete a utiliser les poids presents dans `anime-face-app/models/`:
 Pour la partie `Text to Anime`, les poids LoRA sont locaux.  
 Le modele de base Stable Diffusion peut etre charge localement si vous placez un modele complet dans `models/text-to-anime/base_model_local/` (avec `model_index.json`) ou via `ANIME_FACE_TEXT_BASE_MODEL`.
 
-Si vous voulez forcer un mode strictement local (sans telechargement), lancez:
+⚠️ Si vous voulez forcer un mode strictement local (sans telechargement), lancez:
 
 ```bash
 export ANIME_FACE_TEXT_LOCAL_ONLY=1
 python app.py
 ```
 
-## Ressources du projet
+## 📚 Ressources du projet
 
 - Rapport final: [rapport-final.pdf](./rapport-final.pdf)
 - Application Flask: `anime-face-app/`
